@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Journal</title>
+    <link rel="stylesheet" href="csscode.css">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <h1>My Daily Journal</h1>
+        <!-- Mood Legend -->
+        <div class="mood-legend">
+            <div class="mood-item" data-mood="happy">Happy</div>
+            <div class="mood-item" data-mood="sad">Sad</div>
+            <div class="mood-item" data-mood="excited">Excited</div>
+            <div class="mood-item" data-mood="tired">Tired</div>
+            <div class="mood-item" data-mood="neutral">Neutral</div>
+        </div>
+    </header>
+
+    <!-- Night Mode Toggle (CSS-only) -->
+    <input type="checkbox" id="night-toggle" hidden>
+    <label for="night-toggle" class="night-switch" title="Toggle Night Mode">🌙</label>
+
+    <main class="container">
+
+        <!-- Featured Post Example -->
+        <article class="featured">
+            <h2>About</h2>
+            <p>Hey there! Welcome to the Journal Diary Where you keep and share your memories.So that you can visit it
+                back.</p>
+        </article>
+
+        <!-- Journal Entry -->
+        <article id="entry" class="journal-entry" data-mood="happy">
+            <h3>Journal Entry - <input type="date"></h3>
+            <p>Today I started working on my HTML & CSS project. It was fun to experiment with layouts and colors.</p>
+
+            <!-- Mood Selector -->
+            <label for="mood-select">Mood:</label>
+            <select id="mood-select" onchange="document.getElementById('entry').dataset.mood = this.value;">
+                <option value="happy">Happy</option>
+                <option value="sad">Sad</option>
+                <option value="excited">Excited</option>
+                <option value="tired">Tired</option>
+                <option value="neutral">Neutral</option>
+            </select>
+
+            <!-- Word count placeholder -->
+            <p class="stats">Word count: 50 | Streak: 3 days</p>
+
+            <!-- Inkblot Divider -->
+            <hr class="inkblot">
+
+            <!-- Fake password-protected content -->
+            <div class="fake-password">
+                <input type="password" placeholder="Enter password to view">
+                <button type="button"
+                    onclick="this.parentElement.nextElementSibling.classList.remove('locked')">Unlock</button>
+            </div>
+
+            <div class="locked">
+                <p>This is a password-protected part of the journal (fake UI). In the real project, this would require
+                    actual backend logic.</p>
+            </div>
+
+            <!-- Comment Thread Example -->
+            <section class="comments">
+                <div class="comment">
+                    <div class="comment-body">Hey wonderful</div>
+                </div>
+                <div class="comment replies">
+                    <div class="comment-body">I know this will be the comment.</div>
+                </div>
+            </section>
+        </article>
+
+        <!-- Additional Journal Entries -->
+        <article class="journal-entry" id="entry2" data-mood="excited">
+            <h3>Journal Entry - <input type="date" value="2025-08-09"></h3>
+            <p>What an amazing day! I finally mastered CSS Grid and Flexbox. The way elements flow and respond to
+                different screen sizes is pure magic.Can't wait to build more complex layouts!</p>
+            <!-- Mood Selector -->
+            <label for="mood-select2">Mood:</label>
+            <select id="mood-select2" onchange="document.getElementById('entry2').dataset.mood = this.value;">
+                <option value="happy">Happy</option>
+                <option value="sad">Sad</option>
+                <option value="excited" selected>Excited</option>
+                <option value="tired">Tired</option>
+                <option value="neutral">Neutral</option>
+            </select>
+            <p class="stats">Word count: 32 | Streak: 4 days</p>
+            <hr class="inkblot">
+        </article>
+
+        <article class="journal-entry" id="entry3" data-mood="sad">
+            <h3>Journal Entry - <input type="date" value="2025-08-08"></h3>
+            <p>Today was challenging. Had assignments. Tomorrow will be better.</p>
+            <!-- Mood Selector -->
+            <label for="mood-select3">Mood:</label>
+            <select id="mood-select3" onchange="document.getElementById('entry3').dataset.mood = this.value;">
+                <option value="happy">Happy</option>
+                <option value="sad" selected>Sad</option>
+                <option value="excited">Excited</option>
+                <option value="tired">Tired</option>
+                <option value="neutral">Neutral</option>
+            </select>
+            <p class="stats">Word count: 24 | Streak: 3 days</p>
+            <hr class="inkblot">
+        </article>
+
+        <article class="journal-entry" id="entry4" data-mood="tired">
+            <h3>Journal Entry - <input type="date" value="2025-08-07"></h3>
+            <p>Late night coding session. The project is coming together, but I need to remember to take breaks. My eyes
+                are getting heavy...</p>
+            <!-- Mood Selector -->
+            <label for="mood-select4">Mood:</label>
+            <select id="mood-select4" onchange="document.getElementById('entry4').dataset.mood = this.value;">
+                <option value="happy">Happy</option>
+                <option value="sad">Sad</option>
+                <option value="excited">Excited</option>
+                <option value="tired" selected>Tired</option>
+                <option value="neutral">Neutral</option>
+            </select>
+            <p class="stats">Word count: 27 | Streak: 2 days</p>
+            <hr class="inkblot">
+        </article>
+
+        <article class="journal-entry" id="entry5" data-mood="neutral">
+            <h3>Journal Entry - <input type="date" value="2025-08-06"></h3>
+            <p>Regular day of coding and learning. Reviewed some JavaScript fundamentals and started planning the next
+                feature implementation.</p>
+            <!-- Mood Selector -->
+            <label for="mood-select5">Mood:</label>
+            <select id="mood-select5" onchange="document.getElementById('entry5').dataset.mood = this.value;">
+                <option value="happy">Happy</option>
+                <option value="sad">Sad</option>
+                <option value="excited">Excited</option>
+                <option value="tired">Tired</option>
+                <option value="neutral" selected>Neutral</option>
+            </select>
+            <p class="stats">Word count: 19 | Streak: 1 day</p>
+            <hr class="inkblot">
+        </article>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 My Journal</p>
+    </footer>
+
+</body>
+
+</html>
