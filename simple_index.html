@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Journal</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="csscode.css">
+</head>
+
+<body>
+  <!-- Night Mode Toggle -->
+  <input type="checkbox" id="night-toggle" class="night-mode-toggle">
+  <label for="night-toggle" class="night-switch">🌙</label>
+
+  <!-- Header -->
+  <header class="bg-light p-3 shadow-sm mb-3">
+    <h1 class="text-center">My Daily Journal</h1>
+    <div class="mood-legend d-flex justify-content-center flex-wrap gap-2 mt-2">
+      <span class="badge bg-success">😊 Happy</span>
+      <span class="badge bg-primary">😢 Sad</span>
+      <span class="badge bg-warning text-dark">🤩 Excited</span>
+      <span class="badge bg-secondary">😴 Tired</span>
+      <span class="badge bg-dark">😐 Neutral</span>
+    </div>
+  </header>
+
+  <!-- Search + Filter -->
+  <main class="container my-4">
+    <div class="row g-3 mb-4 align-items-center">
+      <div class="col-md-6">
+        <input type="text" id="search-input" class="form-control" placeholder="🔍 Search journal entries...">
+      </div>
+      <div class="col-md-4">
+        <select id="filter-mood" class="form-select">
+          <option value="all">Filter by Mood (All)</option>
+          <option value="happy">😊 Happy</option>
+          <option value="sad">😢 Sad</option>
+          <option value="excited">🤩 Excited</option>
+          <option value="tired">😴 Tired</option>
+          <option value="neutral">😐 Neutral</option>
+        </select>
+      </div>
+      <div class="col-md-2">
+        <button id="clear-filters" class="btn btn-outline-secondary w-100">Reset</button>
+      </div>
+    </div>
+
+    <!-- Journal Entries Grid -->
+    <div class="row g-4" id="journal-grid">
+      <!-- Journal Entry 1 -->
+      <div class="col-md-6 journal-entry" data-mood="happy">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h3 class="card-title">Journal Entry - <input type="date" class="form-control d-inline w-auto"></h3>
+            <textarea id="entry-text" class="form-control mb-2" rows="3">
+Today I started working on my HTML & CSS project. It was fun to experiment with layouts and colors.
+            </textarea>
+            <div class="mb-2">
+              <label for="mood-select" class="form-label">Mood:</label>
+              <select id="mood-select" class="form-select w-auto d-inline">
+                <option value="happy" selected>Happy</option>
+                <option value="sad">Sad</option>
+                <option value="excited">Excited</option>
+                <option value="tired">Tired</option>
+                <option value="neutral">Neutral</option>
+              </select>
+            </div>
+            <p class="stats">Word count: <span id="word-count">0</span> | Streak: 3 days</p>
+            <hr class="inkblot">
+            <div class="fake-password mb-2">
+              <input type="password" class="form-control w-auto d-inline" placeholder="Enter password to view">
+              <button type="button" class="btn btn-outline-primary btn-sm unlock-btn">Unlock</button>
+            </div>
+            <div class="locked alert alert-secondary">
+              This is a password-protected part of the journal (fake UI). In a real project, this would require backend
+              logic.
+            </div>
+            <section class="comments mt-3">
+              <h5>Comments</h5>
+              <div class="comment p-2 border rounded mb-1">Hey wonderful</div>
+              <div class="comment replies p-2 border rounded bg-light">I know this will be the comment.</div>
+            </section>
+            <div class="mt-3">
+              <input type="text" id="comment-input" class="form-control mb-2" placeholder="Write a comment...">
+              <button id="add-comment" class="btn btn-success btn-sm">Add Comment</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Journal Entry 2 -->
+      <div class="col-md-6 journal-entry" data-mood="excited">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h3 class="card-title">Journal Entry - <input type="date" value="2025-08-09"
+                class="form-control d-inline w-auto"></h3>
+            <p class="card-text">What an amazing day! I finally mastered CSS Grid and Flexbox. I feel like a layout
+              wizard now!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="text-center py-3 bg-light mt-4">
+    <p>&copy; 2025 My Journal</p>
+  </footer>
+
+  <!-- jQuery + Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+</body>
+
+</html>
